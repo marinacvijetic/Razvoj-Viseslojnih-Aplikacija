@@ -1,0 +1,11 @@
+insert into obrazovanje(id, naziv, stepen_strucne_spreme, opis)
+values(-100, 'Test naziv', 'Test strucna spremnost', 'Test opis')
+
+insert into preduzece(id, naziv, pib, sediste, opis)
+values(-100, 'Test naziv', 'Test pib', 'Test sediste', 'Test opis')
+
+insert into radnik(id, ime, prezime, broj_lk, obrazovanje, sektor)
+values(-100, 'Test ime', 'Test prezime', 123456, 2, 2)
+
+insert into sektor(id, naziv, oznaka, preduzece)
+values(-100, 'Test naziv', 'Test oznaka', 2)

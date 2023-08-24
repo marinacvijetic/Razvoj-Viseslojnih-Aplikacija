@@ -1,0 +1,28 @@
+<div class="container">
+    <h3 mat-dialog-title *ngIf="flag==1">Dodavanje obrazovanja:</h3>
+    <h3 mat-dialog-title *ngIf="flag==2"> Modifikacija obrazovanja: {{data.naziv}}</h3>
+    <h3 mat-dialog-title *ngIf="flag==3"> Brisanje obrazovanja: {{data.naziv}}</h3>
+
+    <form class="mat-dialog-content" #formControl="ngForm"> </form>
+        <div class="form">
+            <mat-form-field>
+                <input matInput placeholder="Naziv" [(ngModel)]="data.naziv" name="naziv" [disabled]="flag == 3" required>
+            </mat-form-field>
+        </div>
+        <div class="form">
+            <mat-form-field>
+                <input matInput placeholder="Opis" [(ngModel)]="data.opis" name="opis" [disabled]="flag == 3" >
+            </mat-form-field>
+        </div>
+        <div class="form">
+            <mat-form-field>
+                <input matInput placeholder="Stepen stručne spreme" [(ngModel)]="data.stepenStrucneSpreme" name="stepenStrucneSpreme" [disabled]="flag == 3" required>
+            </mat-form-field>
+        </div>
+        <div mat-dialog-actions>
+            <button mat-button type="submit" *ngIf="flag==1" (click)="addObrazovanje()" [disabled]="!formControl.valid">Sačuvaj</button>
+            <button mat-button type="submit" *ngIf="flag==2" (click)="updateObrazovanje()" [disabled]="!formControl.valid">Sačuvaj</button>
+            <button mat-button type="submit" *ngIf="flag==3" (click)="deleteObrazovanje()" [disabled]="!formControl.valid">Obriši</button>
+            <button mat-button (click)="cancel()">Poništi</button>
+        </div>
+</div>
